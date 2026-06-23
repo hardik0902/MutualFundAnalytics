@@ -1,0 +1,42 @@
+Data Quality Summary:
+
+Objective:
+Evaluate dataset completeness, consistency, uniqueness, and suitability for analytics.
+
+Key Findings:
+
+1. Dataset Completeness
+   • fund_master contains 40 schemes with no missing values.
+   • nav_history contains 46,000 NAV records with no missing values.
+   • No critical missing values were identified in key identifier fields such as AMFI code, scheme name, category, fund house, or NAV.
+   • Attributes are descriptive and business-friendly, making their purpose easy to understand and naming conventions consistently indicate measurement units, such as:
+    1. aum_lakh_crore
+    2. sip_inflow_crore
+    3. new_sip_accounts_lakh
+    4. expense_ratio_pct
+   
+2. Data Consistency
+   • AMFI codes are consistently maintained across fund_master and nav_history.
+   • Categories, sub-categories, and risk categories follow standardized naming conventions.
+   • No inconsistencies were observed in key identifier fields.
+
+3. Data Uniqueness
+   • No duplicate records were identified in fund_master.
+   • No duplicate records were identified in nav_history.
+   • In rest of the CSV files there were no duplicates found.
+   • AMFI scheme codes are unique across the master dataset.
+
+4. Data Type Assessment
+   • Financial metrics such as NAV, expense ratio, and investment thresholds are stored in appropriate numeric formats.
+   • launch_date record within 01_fund_master CSV file and date 03_aum_by_fund_house CSV file are currently stored as strings and should be converted to datetime format for time-series analysis.
+
+5. Missing Value Assessment
+   • The only notable 12 missing values were observed in yoy_growth_pct within monthly_sip_inflows.
+   • These missing values appear business-valid because year-over-year growth cannot be calculated for the initial reporting periods.
+
+6. Business Readiness
+   • The datasets are sufficiently clean for exploratory analysis, dashboard development, trend analysis, and performance benchmarking.
+   • No critical data quality issues were identified that would impact analytical outcomes.
+
+Overall Findings:
+The mutual fund datasets demonstrate high data quality, strong referential integrity, and consistent identifier usage. The data is suitable for further analysis, visualization, and business intelligence reporting.

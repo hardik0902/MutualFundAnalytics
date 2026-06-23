@@ -1,0 +1,20 @@
+AMFI Scheme Code Structure Analysis
+
+AMFI (Association of Mutual Funds in India) assigns a unique scheme code to every mutual fund scheme. 
+In the dataset, the AMFI code acts as a primary identifier and serves as the key linking scheme-level information across multiple datasets.
+
+Observations:
+
+• The fund_master dataset contains 40 unique AMFI codes.
+• The nav_history dataset also contains 40 unique AMFI codes.
+• Validation confirmed that every AMFI code present in fund_master exists in nav_history.
+Fund Master Codes: 40
+NAV History Codes: 40
+• No unmatched records were identified.
+• AMFI codes are stored as integer values, ensuring efficient joins and filtering operations.
+• The AMFI code serves as a primary key in fund_master and a foreign key in nav_history, establishing a one-to-many relationship (one scheme, multiple NAV records).
+
+Business Significance:
+
+Using AMFI codes as a common identifier ensures data consistency across scheme master data, NAV history, performance metrics, portfolio holdings, and investor transaction datasets. 
+This enables reliable cross-dataset analysis and reporting.
